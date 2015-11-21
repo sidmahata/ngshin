@@ -1,0 +1,22 @@
+app_url_api_url:
+    resource: "@AppBundle/Controller/UrlRESTController.php"
+    type:   rest
+    prefix:   /api
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /account
+
+
+#fos_user_registration_register:
+#    pattern: /account/register
+#    defaults: { _controller: FOSUserBundle:Registration:register }
+#    requirements:
+#        _method: GET|POST
+
+api_login_check:
+    path: /account/login_check

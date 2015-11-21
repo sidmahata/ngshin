@@ -1,0 +1,60 @@
+<form style="text-align: center;" ng-submit="shorten()">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Paste Link here..." ng-model="urlentry.longurl">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">Go!</button>
+                                </span>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="pull-left">Advanced Options</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr/>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="alias" ng-model="urlentry.userId">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="alias" ng-model="urlentry.alias">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="description" ng-model="urlentry.description">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="description" ng-model="urlentry.password">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="description" ng-model="urlentry.click">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="description" ng-model="urlentry.metaTitle">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="description" ng-model="urlentry.metaDescription">
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<p>[[message]]</p>
+
+        <p>[[shorturl.longurl]]</p>
+        <p>[[shorturl.shortcode]]</p>
+        <p>[[shorturl.error]]</p>
+        <p>[[error]]</p>
