@@ -24,6 +24,17 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/profile/", name="profilepage")
+     */
+    public function userAction(Request $request)
+    {
+
+        return $this->render('default/user.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        ));
+    }
+
+    /**
      * Finds and displays a Url entity.
      *
      * @Route("/{shortcode}", name="redirect_shortcode")

@@ -9,7 +9,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-    prefix: /account
+    prefix: /user
 
 
 #fos_user_registration_register:
@@ -19,4 +19,4 @@ fos_user:
 #        _method: GET|POST
 
 api_login_check:
-    path: /account/login_check
+    path: /user/login_check

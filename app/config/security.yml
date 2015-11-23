@@ -17,9 +17,9 @@ security:
                 provider: fos_userbundle
                 login_path:               fos_user_security_login
                 check_path:               fos_user_security_check
-                default_target_path: /
+                default_target_path: /profile/
             logout:
-                path:   /account/logout
+                path:   /user/logout
                 target: /
             anonymous:    true
 
@@ -61,9 +61,10 @@ security:
 
 
     access_control:
-        - { path: ^/account/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/account/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/account/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/user/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/profile, role: ROLE_USER }
         - { path: ^/api/urls, role: ROLE_USER, methods: [ PUT, PATCH, DELETE] }
         - { path: ^/api/urls, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET, POST] }

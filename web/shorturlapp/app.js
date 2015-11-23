@@ -13,12 +13,12 @@
             // HOME STATES AND NESTED VIEWS ========================================
             .state('home', {
                 url: '/home',
-                templateUrl: 'http://localhost/shin/web/shorturlapp/home.html',
+                templateUrl: 'http://localhost/ngshin/web/shorturlapp/home.html',
                 controller : 'homeController'
             })
             .state('home.shorten', {
                 url: '/shorten',
-                templateUrl: 'http://localhost/shin/web/shorturlapp/shorten.html',
+                templateUrl: 'http://localhost/ngshin/web/shorturlapp/shorten.html',
                 controller : "shortenController"
             });
 

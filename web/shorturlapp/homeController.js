@@ -12,7 +12,7 @@
             $scope.error = "Could not fetch data";
         };
 
-        $http.get("http://localhost/shin/web/app_dev.php/api/urls/1")
+        $http.get("http://localhost/ngshin/web/app_dev.php/api/urls/1")
             .then(ongeturlComplete, onError);
 
         $scope.homemessage = "hello homepage , Its working";
