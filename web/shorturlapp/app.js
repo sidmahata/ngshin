@@ -6,7 +6,7 @@
 
     app.config(function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/home/dashboard');
 
         $stateProvider
 
@@ -15,6 +15,11 @@
                 url: '/home',
                 templateUrl: 'http://localhost/ngshin/web/shorturlapp/home.html',
                 controller : 'homeController'
+            })
+            .state('home.dashboard', {
+                url: '/dashboard',
+                templateUrl: 'http://localhost/ngshin/web/shorturlapp/dashboard.html',
+                controller : 'dashboardController'
             })
             .state('home.shorten', {
                 url: '/shorten',
