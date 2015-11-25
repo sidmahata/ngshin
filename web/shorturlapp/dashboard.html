@@ -1,6 +1,6 @@
 <!-- top tiles -->
 <div class="row tile_count">
-    <div class="animated flipInY col-md-3 tile_stats_count">
+    <div class="animated flipInY col-md-3 col-xs-6 tile_stats_count">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-user"></i> Views</span>
@@ -8,7 +8,7 @@
             <span class="count_bottom"><i class="green">4% </i> From last Week</span>
         </div>
     </div>
-    <div class="animated flipInY col-md-3 tile_stats_count">
+    <div class="animated flipInY col-md-3 col-xs-6 tile_stats_count">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-clock-o"></i> Earnings</span>
@@ -16,23 +16,15 @@
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
         </div>
     </div>
-    <div class="animated flipInY col-md-3 tile_stats_count">
+    <div class="animated flipInY col-md-3 col-xs-6 tile_stats_count">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-user"></i> eCPM</span>
             <div class="count">$ 1.5</div>
-            {#<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>#}
+            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
         </div>
     </div>
-    {#<div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">#}
-    {#<div class="left"></div>#}
-    {#<div class="right">#}
-        {#<span class="count_top"><i class="fa fa-user"></i> Total Females</span>#}
-        {#<div class="count">4,567</div>#}
-        {#<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>#}
-        {#</div>#}
-    {#</div>#}
-    <div class="animated flipInY col-md-3 tile_stats_count">
+    <div class="animated flipInY col-md-3 col-xs-6 tile_stats_count">
         <div class="left"></div>
         <div class="right">
             <span class="count_top"><i class="fa fa-user"></i> Total Available Earnings</span>
@@ -40,14 +32,6 @@
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
         </div>
     </div>
-    {#<div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">#}
-    {#<div class="left"></div>#}
-    {#<div class="right">#}
-        {#<span class="count_top"><i class="fa fa-user"></i> Total Connections</span>#}
-        {#<div class="count">7,325</div>#}
-        {#<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>#}
-        {#</div>#}
-    {#</div>#}
 
 </div>
 <!-- /top tiles -->
@@ -58,7 +42,7 @@
 
             <div class="row x_title">
                 <div class="col-md-6">
-                    <h3>Network Activities <small>Graph title sub-title</small></h3>
+                    <h3>Click Activities <small>Overall</small></h3>
                 </div>
                 <div class="col-md-6">
                     <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -70,7 +54,7 @@
 
             <div class="col-md-9 col-sm-9 col-xs-12">
                 <div class="x_content">
-                    <canvas id="canvas000"></canvas>
+                    <canvas id="canvas000" style="max-height: 350px;"></canvas>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
@@ -152,12 +136,87 @@
 
     };
 
-    $(document).ready(function () {
+
         new Chart(document.getElementById("canvas000").getContext("2d")).Line(lineChartData, {
             responsive: true,
             tooltipFillColor: "rgba(51, 51, 51, 0.55)"
         });
-    });
+
+
+
+    <!-- datepicker -->
+
+                var cb = function (start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                    //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+                };
+
+                var optionSet1 = {
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment(),
+                    minDate: '01/01/2012',
+                    maxDate: '12/31/2015',
+                    dateLimit: {
+                        days: 60
+                    },
+                    showDropdowns: true,
+                    showWeekNumbers: true,
+                    timePicker: false,
+                    timePickerIncrement: 1,
+                    timePicker12Hour: true,
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    opens: 'left',
+                    buttonClasses: ['btn btn-default'],
+                    applyClass: 'btn-small btn-primary',
+                    cancelClass: 'btn-small',
+                    format: 'MM/DD/YYYY',
+                    separator: ' to ',
+                    locale: {
+                        applyLabel: 'Submit',
+                        cancelLabel: 'Clear',
+                        fromLabel: 'From',
+                        toLabel: 'To',
+                        customRangeLabel: 'Custom',
+                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        firstDay: 1
+                    }
+                };
+
+                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+                $('#reportrange').daterangepicker(optionSet1, cb);
+                $('#reportrange').on('show.daterangepicker', function () {
+                    console.log("show event fired");
+                });
+                $('#reportrange').on('hide.daterangepicker', function () {
+                    console.log("hide event fired");
+                });
+                $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+                    console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+                });
+                $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+                    console.log("cancel event fired");
+                });
+                $('#options1').click(function () {
+                    $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+                });
+                $('#options2').click(function () {
+                    $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+                });
+                $('#destroy').click(function () {
+                    $('#reportrange').data('daterangepicker').remove();
+                });
+
+<!-- /datepicker -->
+
 </script>
 
 

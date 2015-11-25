@@ -465,13 +465,13 @@ table.no-margin .progress {
 
 @media (min-width: 992px) and (max-width: 1100px) {
     .tile_stats_count .count {
-        font-size: 35px !important;
+        font-size: 25px !important;
     }
 }
 
 @media(max-width:768px) {
     .tile_stats_count .count {
-        font-size: 30px !important;
+        font-size: 20px !important;
     }
     .tile_stats_count .right span {
         font-size: 12px;
@@ -1974,7 +1974,7 @@ span.right {
 }
 
 .tile_stats_count .count {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 47px;
     font-weight: 600;
 }
@@ -3138,7 +3138,8 @@ select.parsley-error {
 }
 
 .daterangepicker td.off {
-    color: #999;
+    /*color: #999;*/
+    color: #F9D4D4;
 }
 
 .daterangepicker td.disabled {
@@ -3152,7 +3153,7 @@ select.parsley-error {
 }
 
 .daterangepicker td.in-range {
-    background: #E4E7EA;
+    background: #E7F3FF;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -6354,3 +6355,9 @@ ul.notifications {
     float: right;
     opacity: 1;
 }
+
+
+
+/* Custom options by Sid on 25112015*/
+.advanced-options{cursor: pointer;}
+/* End of Custom options by Sid on 25112015*/
