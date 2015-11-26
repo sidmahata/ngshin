@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CreateShortCode{
 
-    protected static $chars = "123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    protected static $chars = "12bcBYZ";
 
 
     public function checkValidUrl($url){
@@ -69,7 +69,7 @@ class CreateShortCode{
         }
 
         $length = strlen(self::$chars);
-        // make sure length of available characters is at
+        // make sure length of available  characters is at
         // least a reasonable minimum - there should be at
         // least 10 characters
         if ($length < 10) {
@@ -89,8 +89,8 @@ class CreateShortCode{
         // remaining value of $id is less than the length of
         // self::$chars
         $code = self::$chars[$id] . $code;
-
         return $code;
+
     }
 
 
